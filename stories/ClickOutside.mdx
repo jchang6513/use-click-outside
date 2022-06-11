@@ -1,0 +1,19 @@
+# use click out side
+
+The hook `useClickOutside` will listen to click outside event and trigger the callback once event detected.
+
+## Example
+
+```tsx
+  (props: ) => {
+    const insideRef = useRef<HTMLDivElement>(null);
+    const [outsideCount, setOutsideCount] = useState(0);
+    const [insideCount, setInsideCount] = useState(0);
+
+    useClickOutside(insideRef, () => {
+      setOutsideCount(outsideCount + 1);
+    });
+
+    return <div ref={insideRef} {...props} />
+  }
+```

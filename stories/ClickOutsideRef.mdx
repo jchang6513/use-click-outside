@@ -1,0 +1,18 @@
+# use click out side ref
+
+`useClickOutsideRef` return a ref which react to click outside event, and execute the passing callback when event detected.
+
+## Example
+
+```tsx
+  (props: ) => {
+    const [outsideCount, setOutsideCount] = useState(0);
+    const [insideCount, setInsideCount] = useState(0);
+
+    const insideRef = useClickOutsideRef<HTMLDivElement>(() => {
+      setOutsideCount(outsideCount + 1);
+    });
+
+    return <div ref={insideRef} {...props} />
+  }
+```
